@@ -103,14 +103,6 @@ echo "   cp -r $HDIR/* \"\$HOME/Documents/Scratch Projects\"" >> $RDIR/scratchgp
 echo "   chmod 0755 \"\$HOME/Documents/Scratch Projects/*\"" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 echo "fi" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 
-echo "groups | grep gpio" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "if [ $? == \"1\" ]" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "then" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "   echo \"Oh no! You aren't in the gpio group. Scratch GPIO won't work.\"" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "   read -p \"Press any key to dismiss this message...\" -n1 -s" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "   exit 1" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "else" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-
 echo "pkill -f scratchgpio_handler" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 echo "cd $RDIR/scratchgpio"$SGHVER >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 echo "python scratchgpio_handler8.py 127.0.0.1 standard &" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
@@ -118,7 +110,6 @@ echo "## Give the new gpio handler five seconds to get started fully."  >> $RDIR
 echo "sleep 5"  >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 echo "## The double ampersand and all that follows it pkills the user's scratchgpio_handler after Scratch exits." >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 echo "scratch --document \"\$HOME/Documents/Scratch Projects/pibrella.sb\" && pkill -f scratchgpio_handler" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
-echo "fi"  >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 
 chmod +x $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}.sh
 
@@ -149,10 +140,10 @@ chown $USERID:$GROUPID $ICONS/scratchgpio${SGHVER}.desktop
 # echo "cd $RDIR/scratchgpio"$SGHVER >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}plus.sh
 # echo "python scratchgpio_handler8.py &" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}plus.sh
 # echo "scratch --document \"$HDIR/Documents/Scratch Projects/rsc.sb\" &" >> $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}plus.sh
-# 
+#
 # chmod +x $RDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}plus.sh
 # #chown -R $USERID:$GROUPID $HDIR/scratchgpio${SGHVER}/scratchgpio${SGHVER}plus.sh
-# 
+#
 # #Create new desktop icon for plus version
 # echo "[Desktop Entry]" > $HDIR/Desktop/scratchgpio${SGHVER}plus.desktop
 # echo "Encoding=UTF-8" >>  $HDIR/Desktop/scratchgpio${SGHVER}plus.desktop
@@ -165,13 +156,13 @@ chown $USERID:$GROUPID $ICONS/scratchgpio${SGHVER}.desktop
 # echo "Comment= Programming system and content development tool" >>  $HDIR/Desktop/scratchgpio${SGHVER}plus.desktop
 # echo "Categories=Application;Education;Development;" >>  $HDIR/Desktop/scratchgpio${SGHVER}plus.desktop
 # echo "MimeType=application/x-scratch-project" >>  $HDIR/Desktop/scratchgpio${SGHVER}plus.desktop
-# 
+#
 # chown -R $USERID:$GROUPID  $HDIR/Desktop/scratchgpio${SGHVER}plus.desktop
-# 
+#
 # mkdir -p $HDIR/Desktop/ScratchGPIO\ Extras
 # chown -R $USERID:$GROUPID $HDIR/Desktop/ScratchGPIO\ Extras
-# 
-# 
+#
+#
 # #Create a new file for oldscratchgpioX.sh
 # echo "#!/bin/bash" > $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}.sh
 # echo "#Version 0.2 - add in & to allow simultaneous running of handler and Scratch" >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}.sh
@@ -182,9 +173,9 @@ chown $USERID:$GROUPID $ICONS/scratchgpio${SGHVER}.desktop
 # echo "cd $RDIR/scratchgpio"$SGHVER >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}.sh
 # echo "python scratchgpio_handler8.py 127.0.0.1 standard &" >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}.sh
 # echo "scratch.old --document \"$HDIR/Documents/Scratch Projects/rsc.sb\" &" >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}.sh
-# 
+#
 # chmod +x $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}.sh
-# 
+#
 # #Create new desktop icon for oldscratch version
 # echo "[Desktop Entry]" > $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}.desktop
 # echo "Encoding=UTF-8" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}.desktop
@@ -197,11 +188,11 @@ chown $USERID:$GROUPID $ICONS/scratchgpio${SGHVER}.desktop
 # echo "Comment= Programming system and content development tool" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}.desktop
 # echo "Categories=Application;Education;Development;" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}.desktop
 # echo "MimeType=application/x-scratch-project" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}.desktop
-# 
+#
 # chown -R $USERID:$GROUPID  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}.desktop
-# 
-# 
-# 
+#
+#
+#
 # #Create a new file for old scratchgpioXplus.sh
 # echo "#!/bin/bash" > $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}plus.sh
 # echo "#Version 0.2 - add in & to allow simulatenous running of handler and Scratch" >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}plus.sh
@@ -212,9 +203,9 @@ chown $USERID:$GROUPID $ICONS/scratchgpio${SGHVER}.desktop
 # echo "cd $RDIR/scratchgpio"$SGHVER >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}plus.sh
 # echo "sudo python scratchgpio_handler8.py &" >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}plus.sh
 # echo "scratch.old --document \"$HDIR/Documents/Scratch Projects/rsc.sb\" &" >> $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}plus.sh
-# 
+#
 # chmod +x $RDIR/scratchgpio${SGHVER}/oldscratchgpio${SGHVER}plus.sh
-# 
+#
 # #Create new desktop icon for plus version
 # echo "[Desktop Entry]" > $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}plus.desktop
 # echo "Encoding=UTF-8" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}plus.desktop
@@ -227,7 +218,7 @@ chown $USERID:$GROUPID $ICONS/scratchgpio${SGHVER}.desktop
 # echo "Comment= Programming system and content development tool" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}plus.desktop
 # echo "Categories=Application;Education;Development;" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}plus.desktop
 # echo "MimeType=application/x-scratch-project" >>  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}plus.desktop
-# 
+#
 # chown -R $USERID:$GROUPID  $HDIR/Desktop/ScratchGPIO\ Extras/oldscratchgpio${SGHVER}plus.desktop
 
 cp blink11.py $HDIR
